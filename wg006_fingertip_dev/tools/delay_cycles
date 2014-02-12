@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import math
+import sys
+
+def print_header():
+    print "delay (us)\tcycles\tactual delay (us)"
+
+
+def delay_cycles(delay_us):
+	delay_us = float(delay_us)
+	cycles = math.ceil (delay_us * 6.25 - 1.5)
+	actual_delay_us = (2 * cycles + 3) * 0.08
+	print "%f \t0x%X \t%f"  % (delay_us, cycles, actual_delay_us)
+
+if __name__ == "__main__":
+    if len(sys.argv) <= 1:
+        print "Usage:  %s <delay value> " % sys.argv[0]
+    else:
+        print_header()
+        for arg in sys.argv[1:]:
+            delay_cycles(float(arg))
+        
