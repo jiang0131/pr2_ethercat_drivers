@@ -1,0 +1,5 @@
+If you encounter the error sys/capability.h: No such file or directory, it is because a required package is not installed on your system.
+
+On Debian or Ubuntu, something like the following should work:
+
+$ sudo apt-get install libcap-dev
